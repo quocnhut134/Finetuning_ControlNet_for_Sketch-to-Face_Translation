@@ -9,6 +9,10 @@ st.title("Demo Generating Image from Face Sketch ")
 
 st.markdown("---")
 
+with st.spinner("Loading models..."):
+    pipe = model_loader.load_pipeline()
+    hed = model_loader.load_hed_detector()
+
 with st.sidebar:
     st.header("Configuration")
     prompt = st.text_area(
@@ -24,14 +28,15 @@ with st.sidebar:
     guidance_scale = st.slider("Guidance Scale", 1.0, 15.0, 8.0, 0.5)
     control_scale = st.slider("ControlNet Scale", 0.0, 1.0, 0.9, 0.1)
     
-    st.markdown("---")
+    # st.markdown("---")
+    uploaded_file = st.file_uploader("Upload your face sketch here...", type=["png", "jpg", "jpeg"])
+
     run_button = st.button("Generate Image", width='stretch', type="primary")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.header("1. Upload Face Sketch")
-    uploaded_file = st.file_uploader("Upload your face sketch here...", type=["png", "jpg", "jpeg"])
+    st.header("1. Uploaded Face Sketch")
     
     st.markdown("Input Face Sketch")
     input_image_placeholder = st.empty()
@@ -41,30 +46,28 @@ with col1:
     
 with col2:
     st.header("2. Generated Image")
+    
+    st.markdown("Output Generated Image")
     output_image_placeholder = st.empty()
 
-if run_button and uploaded_file:
-    input_image = Image.open(uploaded_file).convert("RGB")
-    input_image_placeholder.image(input_image, caption="Uploaded sketch", width='stretch')
+    if run_button and uploaded_file:
+        input_image = Image.open(uploaded_file).convert("RGB")
+        input_image_placeholder.image(input_image, caption="Uploaded sketch", width='stretch')
 
-    with st.spinner("Loading models..."):
-        pipe = model_loader.load_pipeline()
-        hed = model_loader.load_hed_detector()
+        with st.spinner("Generating image..."):
+            output_image, condition_image = inference.generate_image(
+                pipe=pipe,
+                hed=hed,
+                input_image=input_image,
+                prompt=prompt,
+                neg_prompt=negative_prompt,
+                guidance_scale=guidance_scale,
+                control_scale=control_scale,
+                device=config.device
+            )
 
-    with st.spinner("Generating image..."):
-        output_image, condition_image = inference.generate_image(
-            pipe=pipe,
-            hed=hed,
-            input_image=input_image,
-            prompt=prompt,
-            neg_prompt=negative_prompt,
-            guidance_scale=guidance_scale,
-            control_scale=control_scale,
-            device=config.device
-        )
+        hed_image_placeholder.image(condition_image, caption="HED Image", width='stretch')
+        output_image_placeholder.image(output_image, caption="Generated Image", width='stretch')
 
-    hed_image_placeholder.image(condition_image, caption="HED Image", width='stretch')
-    output_image_placeholder.image(output_image, caption="Generated Image", width='stretch')
-
-elif uploaded_file:
-    input_image_placeholder.info("Click Generate Image button on sidebar")
+    elif uploaded_file:
+        input_image_placeholder.info("Click the generate image button on sidebar")

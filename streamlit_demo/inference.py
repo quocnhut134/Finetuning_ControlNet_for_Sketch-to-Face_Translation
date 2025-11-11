@@ -19,14 +19,14 @@ def generate_image(
         image_resolution=512
     )
     
-    generator = torch.Generator(device=device).manual_seed(seed)
+    # generator = torch.Generator(device=device).manual_seed(seed)
     
     output_image = pipe(
         prompt=prompt,
         negative_prompt=neg_prompt,
         image=condition_image,
         num_inference_steps=30,
-        generator=generator,
+        # generator=generator,
         guidance_scale=guidance_scale,
         controlnet_conditioning_scale=control_scale
     ).images[0]
