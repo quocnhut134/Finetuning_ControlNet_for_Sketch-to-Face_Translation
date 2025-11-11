@@ -7,7 +7,7 @@ This is a minimal demo to turn a face **sketch** into a **realistic portrait** u
 
 ## 1) Environment
 
-- Python 3.10+ recommended
+- Python 3.10+ recommended (note python 3.11 )
 - GPU (NVIDIA, CUDA 12.x) recommended. CPU works but will be slow.
 
 ```bash
