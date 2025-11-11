@@ -1,0 +1,19 @@
+# Preprocessing data
+opencv-python-headless
+numpy
+tqdm
+
+# Training
+torch
+torchvision
+diffusers
+transformers
+accelerate
+controlnet-aux
+datasets
+torch-fidelity
+lpips
+pillow
+
+# Demo
+streamlit
