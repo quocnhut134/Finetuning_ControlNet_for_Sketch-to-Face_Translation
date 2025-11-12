@@ -14,6 +14,7 @@ datasets
 torch-fidelity
 lpips
 pillow
+hf_xet
 
 # Demo
 streamlit
