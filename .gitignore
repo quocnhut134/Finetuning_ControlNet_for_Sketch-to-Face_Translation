@@ -1,3 +1,5 @@
 DL/
 saved_models/
 __pycache__
+data_dir/
+notebooks/
