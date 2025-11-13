@@ -28,8 +28,8 @@ train_stable_diff_name = "botp/stable-diffusion-v1-5"
 
 # Training
 train_data_dir = os.path.join(project_root, "data_dir", "large_hed-augmented_ffhq_dataset")
-train_best_model_path = os.path.join(project_root, "saved_models", "controlnet_best_model_demo")
-train_latest_model_path = os.path.join(project_root, "saved_models", "controlnet_latest_model_demo")
+train_best_model_path = os.path.join(project_root, "saved_models", "controlnet_best_model")
+train_latest_model_path = os.path.join(project_root, "saved_models", "controlnet_latest_model")
 device = "cuda" if torch.cuda.is_available() else "cpu"
 dtype = torch.float16 if device == "cuda" else torch.float32
 num_epochs = 20
