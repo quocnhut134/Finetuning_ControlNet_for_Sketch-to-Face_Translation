@@ -4,3 +4,4 @@ __pycache__
 data_dir/
 notebooks/
 outputs/
+saved_models/
