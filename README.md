@@ -8,7 +8,7 @@ The model is specifically trained to be **robust against imperfect, noisy, or in
 
 | Original Sketch (Input) | HED Sketch (ControlNet Input) | Generated Face (Output) |
 | :---: | :---: | :---: |
-| ![Image](https://github.com/user-attachments/assets/c2c4e8ee-81f5-4895-8ca1-6bac0d30ae16) | ![Image](https://github.com/user-attachments/assets/6fd80d35-a0e9-49fa-a2e8-25a42ea9a987) | ![Image](https://github.com/user-attachments/assets/ee7692d0-fdd8-4fd6-a342-3ee4bbf4b8ce) |
+| ![Image](https://github.com/user-attachments/assets/c2c4e8ee-81f5-4895-8ca1-6bac0d30ae16) | ![Image](https://github.com/user-attachments/assets/ee7692d0-fdd8-4fd6-a342-3ee4bbf4b8ce) | ![Image](https://github.com/user-attachments/assets/6fd80d35-a0e9-49fa-a2e8-25a42ea9a987)|
 
 ## Installation
 
@@ -71,4 +71,5 @@ Once training is complete, you can evaluate your best model on the test set.
   * The original [ControlNet](https://github.com/lllyasviel/ControlNet) paper and implementation.
 
   * The [FFHQ Dataset](https://github.com/NVlabs/ffhq-dataset) by NVlabs.
+
 
