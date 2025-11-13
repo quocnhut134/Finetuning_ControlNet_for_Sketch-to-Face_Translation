@@ -2,6 +2,5 @@ DL/
 saved_models/hed_model/
 __pycache__
 data_dir/
-notebooks/
 outputs/
 saved_models/
