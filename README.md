@@ -1,6 +1,6 @@
 ﻿# Finetuning ControlNet for Sketch-to-Face Translation
 
-In this project, we implement a complete, end-to-end pipeline for finetuning a ControlNet model for the sketch-to-face translation task. The core solution utilizes a frozen **Stable Diffusion v1.5** model, guided by a trainable **ControlNet adapter**.
+In this project, I implement a complete, end-to-end pipeline for finetuning a ControlNet model for the sketch-to-face translation task. The core solution utilizes a frozen **Stable Diffusion v1.5** model, guided by a trainable **ControlNet adapter**.
 
 The model is specifically trained to be **robust against imperfect, noisy, or incomplete input sketches**, simulating real-world user drawings.
 
@@ -71,5 +71,6 @@ Once training is complete, you can evaluate your best model on the test set.
   * The original [ControlNet](https://github.com/lllyasviel/ControlNet) paper and implementation.
 
   * The [FFHQ Dataset](https://github.com/NVlabs/ffhq-dataset) by NVlabs.
+
 
 
